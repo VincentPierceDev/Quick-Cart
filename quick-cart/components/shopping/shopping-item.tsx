@@ -1,9 +1,10 @@
 'use client'
 import Image from "next/image"
-import { ItemData } from "@/global-types/shop/shop-types";
+import { CartData, ItemData } from "@/global-types/shop/shop-types";
 import Button from "../global/Button";
 import { useRef } from "react";
 import Rating from "./rating";
+import { useCart } from "@/contexts/shop/cart-provider";
 
 interface Props {
     info: ItemData;
@@ -11,6 +12,8 @@ interface Props {
 
 export default function ShoppingItem(props: Props) {
     const image = useRef<HTMLImageElement>(null);
+    const {updateCart} = useCart();
+
     const aboveFoldCount: number = 3;
     const loadingStyle = props.info.id > aboveFoldCount ? 'lazy' : 'eager';
     const priority: boolean = props.info.id > aboveFoldCount ? false : true;
@@ -21,6 +24,10 @@ export default function ShoppingItem(props: Props) {
 
     const unHoverEffect = () => {
         image.current?.classList.remove('scale-110');
+    }
+
+    const addItemToCart = () => {
+        updateCart(props.info.id, 1);
     }
 
     return(
@@ -38,7 +45,7 @@ export default function ShoppingItem(props: Props) {
                 </p>
                 <div className="flex row items-center justify-between w-full mt-auto">
                     <span className="font-bold text-xl">${props.info.price}</span>
-                    <Button ariaDisabled={false} disabledText="Out of Stock">Add To Cart</Button>
+                    <Button onClick={addItemToCart} ariaDisabled={false} disabledText="Out of Stock">Add To Cart</Button>
                 </div>
             </div>
         </div>

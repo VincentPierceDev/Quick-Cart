@@ -17,7 +17,6 @@ export interface ItemData {
 }
 
 export interface CartData {
-    title: string;
-    price: number;
-    image: string;
+    id: number;
+    quantity: number;
 }

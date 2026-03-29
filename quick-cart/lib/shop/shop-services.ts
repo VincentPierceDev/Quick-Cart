@@ -12,3 +12,7 @@ export async function RetrieveAllShopItems() {
     const data = await response.json();
     return data;
 }
+
+export async function CheckoutCart() {
+
+}

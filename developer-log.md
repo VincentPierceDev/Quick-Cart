@@ -11,6 +11,7 @@ End Time: 1:10AM
 
 Day 1
 Start Time: 10:17AM
+End Time:
 
 ## Strategies
 
@@ -39,7 +40,16 @@ I did some lighthouse page speed optimizations for the images. The LCP is still 
 Requested Claude to create me a css star pattern for the ratings. It created it successfully.
 
 3/29/2026 3:12PM
-Asked Copilot to provide me the details of how to convert my cart icon svg to be my tertiary-css color. It provided a working solution.
+Asked Copilot to provide me the details of how to convert my cart icon svg to be completely black. I always forget the filters. It provided a working solution.
+
+3/29/2026 4:40PM
+Debugged the cart provider using CoPilot. It was reading undefined when adding a new item that already existed. The issue was I was not returning anything from the map. Just added the return and now the cart is printing correct json when adding items. Time to implement the UI for it!
+
+3/29/2026 5:57PM
+Had some structure issues I was dealing with. Was struggling to figure out how to get the menu opening flag from the button in the navbar to the actual menu on my page. However, discussing with GPT and filtering off beat suggestions, I came to the conclusion I need to make another generalized context that handles opening and closing the menu. GPT provided a solution for managing all menus in the app by receiving an id, but I translated it to work with just one. It is just a bit too much scalability for the project.
+
+3/29/2026 6:31PM
+Alright, the project is pretty much complete at this point. I will be doing a few prompts to figure out tailwind issues with the cart ui. Besides that I have everything working and it is just a matter of polishing and finishing the cart ui. So, just docummenting these minor prompts. After I finish this, then tomorrow I plan on utilizing Ai to write all the test cases in Jest to make sure everything works, write the docs, and then host it. It should be ready to turn in tomorrow (3/30/2026).
 
 ## Corrections:
 
@@ -60,5 +70,8 @@ I took the data that was wrong, and set it up to utilize the id's of the item to
 
 3/29/2026 2:40PM
 Had issues with the star pattern not filling. I then finally realized the Ai had set the React css property variable in the actual css. I removed the variable that was set to 0 and then the star display immediately worked. 
+
+3/29/2026 3:46PM
+Asked Claude to create me a cart provider similar to my shop provider to handle drilling. It did not meet the requirements I needed and I spent time trying to have it fix it. It failed still, and so I just tackled the cart-provider myself while referencing the shop-provider, docs, and Ai.
 
 ## Testing
