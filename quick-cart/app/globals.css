@@ -3,19 +3,24 @@
 :root {
   --primary-color: #F7F7F7;
   --secondary-color: #6b92db;
+  --tertiary-color: #0a0a0a;
+  --primary-font: arial, system-ui;
+  --secondary-font: sans-serif, system-ui;
 }
 
 @theme inline {
   --primary-color: var(--primary-color);
   --secondary-color: var(--secondary-color);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --tertiary-color: var(--tertiary-color);
+  --primary-font: var(--primary-font);
+  --secondary-font: var(--secondary-font);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #0a0a0a;
     --secondary-color: #cedfff;
+    --tertiary-color: #851b1b;
   }
 }
 

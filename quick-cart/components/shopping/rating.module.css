@@ -1,0 +1,23 @@
+
+.star {
+    position: relative;
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: #d1d5db; /*Tailwind grey 300*/
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+        50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+    );
+    overflow: hidden;
+}
+
+.star::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--star-fill);
+    background-color: #facc15 /*Tailwind yellow 300*/
+}

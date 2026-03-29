@@ -3,7 +3,7 @@
 export default function Loading() {
     return(
         <div className={"inline-flex items-center text-gray-400 font-semibold user-select-none"}>
-            <span>Loading Items</span>
+            <span>Loading Store</span>
             <span className="bounce-dot">.</span>
             <span id="middle-dot" className="bounce-dot">.</span>
             <span id="last-dot" className="bounce-dot">.</span>

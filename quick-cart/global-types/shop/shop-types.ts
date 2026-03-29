@@ -1,5 +1,5 @@
 
-interface ItemRating {
+export interface ItemRating {
     rate: number;
     count: number;
 }

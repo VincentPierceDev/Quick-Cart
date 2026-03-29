@@ -1,18 +1,16 @@
+'use client'
 import ShoppingItem from "@/components/shopping/shopping-item";
-import { ItemData } from "@/global-types/shop-types"
-import { RetrieveAllShopItems } from "@/services/shop-services"
+import { ItemData } from "@/global-types/shop/shop-types"
+import { useShopData } from "@/contexts/shop/shop-provider";
 
-interface Props {
-    addToCart: Function;
-}
+export default function ShoppingGrid() {
+    const {shopProducts} = useShopData();
 
-export default async function ShoppingGrid(props: Props) {
-    const shopData: ItemData[] = await RetrieveAllShopItems();
-    
     return(
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-scroll w-full h-full bg-blue-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 overflow-y-scroll w-full h-full bg-[var(--primary-color)] p-3 pt-25 pb-25 relative">
+            <span className="absolute right-0 mr-3 mt-15">Showing {shopProducts.length} Items</span>
             {
-                shopData.map((x: ItemData) => (
+                shopProducts.map((x: ItemData) => (
                     <ShoppingItem key={x.id} info={x}/>
                 ))
             }

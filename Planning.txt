@@ -1,25 +1,24 @@
 StorePage:
 	//NOTE the cart could take in item ID's and using cache to efficiently retrieve items when needed, but 20 items isn't much to just copy 
-	Holds state for the cart (list of ItemData), filters (list of FilterTypes), and shopitems (list of ItemData)
+	Manages state for the cart (list of ItemData), filters (list of FilterTypes), and shopitems (list of ItemData)
+	State for these are stored and controlled in contexts so the various parts of the shop can access them.
 	
 	Parent component for everything shop related that manages all the components and passes data where it belongs.
 
 	The callback function for adding to cart takes in an ItemData and basically adds the id to the useState list (item display handles sold out)
 	The callback function for filtering pretty much does the same thing but accepts a FilterType value, if the type is already in the list remove it, if not, add it
 
-FilterMenu:
+FilterMenu (if there is time):
 	Accepts callback function for adding a filter
 	Basically just a form, when a checkbox is clicked, report the filter Enum value back to the callback function
 
 ShoppingGrid:
-	Brings in a callback function for adding to cart, and a list for filtered categories, as props
-	.filter() the retrieved ItemData for all the items in the shop, checks to see if data matches, boots if not. Probably skip
-	this step if there are no filters in the list. I am not exactly sure how I would syntactically filter this, will need to look it up.
-	Controls displaying when the items are loading during fetch (maybe show some dummy data if there is time), displaying amount of items, etc
-	Map over the ItemDatas and pass everything it needs right along, display these in a scrolling grid
+	.filter() the retrieved ItemData for all the items in the shop based on the filtermenu, checks to see if data matches, boots if not. Probably skip this step if there are no filters in the list. I am not exactly sure how I would syntactically filter this, will need to look it up. (again, if there is time).
+	Controls displaying when the items are loading during fetch, displaying amount of items, etc
+	Map over the ItemDatas and pass everything it needs right to the shoppingItem, display these in a scrolling grid
 
 ShoppingItem:
-	Brings in an ItemData and callback function (for button) as props
+	Brings in an ItemData as props
 	Checks item data to see if item is sold out, quantity, details, image, etc, all the deets
 	Basically is just a jsx component for displaying an item and its quanitty
 

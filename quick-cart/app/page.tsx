@@ -1,25 +1,19 @@
-import { Suspense } from "react";
+import { ItemData } from "@/global-types/shop/shop-types";
+import { RetrieveAllShopItems } from "@/lib/shop/shop-services";
+import { ShopDataProvider } from "@/contexts/shop/shop-provider";
 import ShoppingGrid from "@/components/shopping/shopping-grid";
-import Loading from "@/components/loading";
 
+//NOTE: This would typically by at like a specific route
+//however, I am just adding it as Next's default home page for simplicity of this project
 
-
-export default function Home() {
-
-  const addItemToCart = () => {
-
-  }
-
-  const removeItemFromCart = () => {
-
-  }
+export default async function Home() {
+  const storeItems: ItemData[] = await RetrieveAllShopItems();
 
   return (
-    <main className="h-screen">
-      <h1>Test</h1>
-      <Suspense fallback={<Loading/>}>
-        <ShoppingGrid addToCart={addItemToCart}/>
-      </Suspense>
-    </main>
+    <>
+      <ShopDataProvider initialProducts={storeItems}>
+          <ShoppingGrid/>
+      </ShopDataProvider>
+    </>
   );
 }

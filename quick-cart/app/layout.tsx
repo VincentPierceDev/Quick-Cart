@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
+import Loading from "@/components/global/Loading";
+import Navbar from "@/components/global/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Quick Cart",
@@ -22,10 +15,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //simple app just throwing the suspense here so my server page can show loading
+  //more complex app may have a special layout or have more stuff on the actual page where the fetching 
+  //does not actually belong there and it may have a Shopping-Panel component that contains a Shopping-Grid.
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        {children}
+        <nav>
+          <Navbar/>
+        </nav>
+        <main className="h-screen">
+          <Suspense fallback={<Loading/>}>
+            {children}
+          </Suspense>
+        </main>
       </body>
     </html>
   );
