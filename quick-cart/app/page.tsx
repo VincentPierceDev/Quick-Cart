@@ -9,7 +9,7 @@ import { CartDataProvider } from "@/contexts/shop/cart-provider";
 //however, I am just adding it as Next's default home page for simplicity of this project
 
 export default async function Home() {
-  const storeItems: ItemData[] = await RetrieveAllShopItems().catch(() => []);
+  const storeItems: ItemData[] = await RetrieveAllShopItems();
 
   return (
     <>
