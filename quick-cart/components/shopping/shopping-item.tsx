@@ -31,7 +31,7 @@ export default function ShoppingItem(props: Props) {
     }
 
     return(
-        <div onMouseEnter={hoverEffect} onMouseLeave={unHoverEffect} className="flex flex-col w-full h-full bg-[var(--primary-color)] text-white rounded-md">
+        <div onMouseEnter={hoverEffect} onMouseLeave={unHoverEffect} className="flex flex-col w-full h-full bg-[var(--primary-color)] text-[var(--dark-text)] rounded-md">
             <div className="relative w-full h-50 bg-red-200 overflow-hidden">
                 <Image ref={image} fetchPriority="high" priority={priority} className="w-full h-full object-cover absolute transition-transform duration-300 ease-in-out select-none pointer-events-none" loading={loadingStyle} src={props.info.image} alt={`${props.info.title} showcase`} fill={true} sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw" />
             </div>

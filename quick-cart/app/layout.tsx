@@ -20,9 +20,9 @@ export default function RootLayout({
   //does not actually belong there, and it may have a Shopping-Panel component that contains a Shopping-Grid which could ocntain this stuff.
   //just taking a small shortcut.
   return (
-    <html lang="en" className={`h-full antialiased`}>
+    <html lang="en" className={`h-full antialiased overflow-x-hidden`}>
       <MenuProvider>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <nav>
           <Navbar/>
         </nav>

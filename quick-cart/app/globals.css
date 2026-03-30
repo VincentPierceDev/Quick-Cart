@@ -4,6 +4,8 @@
   --primary-color: #F7F7F7;
   --secondary-color: #6b92db;
   --tertiary-color: #0a0a0a;
+  --dark-text: black;
+  --light-text: white;
   --primary-font: arial, system-ui;
   --secondary-font: sans-serif, system-ui;
 }
@@ -14,6 +16,8 @@
   --tertiary-color: var(--tertiary-color);
   --primary-font: var(--primary-font);
   --secondary-font: var(--secondary-font);
+  --light-text: var(--light-text);
+  --dark-text: var(--dark-text);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +25,8 @@
     --primary-color: #0a0a0a;
     --secondary-color: #cedfff;
     --tertiary-color: #851b1b;
+    --dark-text: white;
+    --light-text: black;
   }
 }
 

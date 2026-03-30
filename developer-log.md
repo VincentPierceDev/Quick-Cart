@@ -11,7 +11,7 @@ End Time: 1:10AM
 
 Day 1
 Start Time: 10:17AM
-End Time:
+End Time:  11:16PM
 
 ## Strategies
 
@@ -73,5 +73,8 @@ Had issues with the star pattern not filling. I then finally realized the Ai had
 
 3/29/2026 3:46PM
 Asked Claude to create me a cart provider similar to my shop provider to handle drilling. It did not meet the requirements I needed and I spent time trying to have it fix it. It failed still, and so I just tackled the cart-provider myself while referencing the shop-provider, docs, and Ai.
+
+3/29/2026 11:15PM
+I have to add this log. I have a big issue on IOS mobile that is causing none of my buttons to work. I have tried everything, asked Claude, GPT, CoPilot, looked up answers, searched and debugged on my own for several hours. Hopefully I can figure this out tomorrow and I won't take too much time away from building test cases. I still have a couple more styles to touch up on, but the app is complete.
 
 ## Testing
