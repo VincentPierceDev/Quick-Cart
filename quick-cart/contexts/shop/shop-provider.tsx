@@ -16,8 +16,9 @@ interface Props {
 const ShopContext = createContext<ShopContext | undefined>(undefined);
 
 export function ShopDataProvider(props: Props) {
+    const [shopProducts] = useState<ItemData[]>(props.initialProducts);
     return(
-        <ShopContext.Provider value={{shopProducts: props.initialProducts}}>
+        <ShopContext.Provider value={{shopProducts: shopProducts}}>
             {props.children}
         </ShopContext.Provider>
     )
