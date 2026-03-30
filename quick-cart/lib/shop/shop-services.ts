@@ -7,7 +7,12 @@ const endpoint: URL = new URL('https://fakestoreapi.com/products');
 
 export async function RetrieveAllShopItems() {
     try {
-        const response = await fetch(endpoint);
+        const response = await fetch(endpoint, {
+            cache: 'default',
+            headers: {
+                'User-Agent': 'Mozilla/5.0'
+            }
+        });
 
         if (!response.ok) {
             console.error('Failed to fetch shop data!', response.status);
