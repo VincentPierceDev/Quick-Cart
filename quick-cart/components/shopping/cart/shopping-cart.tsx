@@ -21,7 +21,6 @@ export default function ShoppingCart() {
             CheckoutCart(cartProducts);
     }
 
-
     //could use memo on here as well for large data sets
     //don't need to fetch the getTotalValue() every render
     //small data set is just less effecient to useMemo
