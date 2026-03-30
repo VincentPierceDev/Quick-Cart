@@ -6,13 +6,21 @@ import { CartData } from "@/global-types/shop/shop-types";
 const endpoint: URL = new URL('https://fakestoreapi.com/products');
 
 export async function RetrieveAllShopItems() {
-    const response = await fetch(endpoint);
+    try {
+        const response = await fetch(endpoint);
 
-    if (!response.ok)
-        throw new Error('Failed to fetch shop data!');
+        if (!response.ok)
+        {
+            console.error('Failed to fetch shop data!');
+            return [];
+        }
 
-    const data = await response.json();
-    return data;
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Unknown Fetch Error: ', error);
+        return [];
+    }
 }
 
 export async function CheckoutCart(items: CartData[]) {
