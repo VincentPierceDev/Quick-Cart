@@ -16,11 +16,8 @@ interface Props {
 const ShopContext = createContext<ShopContext | undefined>(undefined);
 
 export function ShopDataProvider(props: Props) {
-    //shop data should not change unless the server fetches more data at the shop page
-    const [products] = useState(props.initialProducts);
-
     return(
-        <ShopContext.Provider value={{shopProducts: products}}>
+        <ShopContext.Provider value={{shopProducts: props.initialProducts ?? []}}>
             {props.children}
         </ShopContext.Provider>
     )
