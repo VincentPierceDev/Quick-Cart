@@ -9,7 +9,7 @@ import Button from "@/components/global/Button";
 import CartItem from './cart-item';
 
 export default function ShoppingCart() {
-    const [total, setTotal] = useState<Number>(0);
+    const [total, setTotal] = useState(0);
     const openClass = 'translate-x-0 pointer-events-auto z-50';
     const closedClass = 'translate-x-[120%] pointer-events-none z-0';
     const {cartProducts} = useCart();

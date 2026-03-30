@@ -3,7 +3,9 @@ import "./globals.css";
 import { Suspense } from "react";
 import Loading from "@/components/global/Loading";
 import Navbar from "@/components/global/Navbar";
+import Footer from "@/components/global/Footer";
 import { MenuProvider } from "@/contexts/general/menu-context";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Quick Cart",
@@ -20,8 +22,9 @@ export default function RootLayout({
   //does not actually belong there, and it may have a Shopping-Panel component that contains a Shopping-Grid which could ocntain this stuff.
   //just taking a small shortcut.
   return (
-    <html lang="en" className={`h-full antialiased overflow-x-hidden`}>
+    <html lang="en" className={`h-full antialiased overflow-x-hidden`} suppressHydrationWarning>
       <MenuProvider>
+      <ThemeProvider attribute="class">
       <body className="min-h-full flex flex-col overflow-x-hidden">
         <nav>
           <Navbar/>
@@ -31,7 +34,11 @@ export default function RootLayout({
             {children}
           </Suspense>
         </main>
+        <footer>
+          <Footer/>
+        </footer>
       </body>
+      </ThemeProvider>
       </MenuProvider>
     </html>
   );

@@ -11,7 +11,7 @@ End Time: 1:10AM
 
 Day 1
 Start Time: 10:17AM
-End Time:  11:16PM
+End Time:  11:59PM
 
 ## Strategies
 

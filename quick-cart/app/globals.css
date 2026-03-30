@@ -20,14 +20,12 @@
   --dark-text: var(--dark-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #0a0a0a;
-    --secondary-color: #cedfff;
-    --tertiary-color: #851b1b;
-    --dark-text: white;
-    --light-text: black;
-  }
+html.dark {
+  --primary-color: #0a0a0a;
+  --secondary-color: #cedfff;
+  --tertiary-color: #851b1b;
+  --dark-text: white;
+  --light-text: black;
 }
 
 body {
