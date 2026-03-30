@@ -59,6 +59,9 @@ Alright, the project is pretty much complete at this point. I will be doing a fe
 3/30/2026 12:46PM
 I have been going round and round trying to get the deployment working. First I was getting a 404 error which I fixed by specifying the project type in Vercel. Now I am having an issue where the server is passing an empty array to my Shop Provider. So, trying to figure out what is causing this issue, using various resources.
 
+3/30/2026 1:56PM
+After doing some digging, I discovered that fakestoreapi.com may block common serverless fetches from stuff like Vercel, Netlify, AWS, etc. So, I am adjusting the products fetch to be client only. This will remove the loading from working since that is server only. However, I am leaving all the server fetching as well so it can be swapped around easily. The page.tsx is the only file that should be affected by the change.
+
 ## Corrections:
 
 3/28/2026 8:33PM
