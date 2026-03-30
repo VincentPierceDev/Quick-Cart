@@ -9,9 +9,8 @@ export async function RetrieveAllShopItems() {
     try {
         const response = await fetch(endpoint);
 
-        if (!response.ok)
-        {
-            console.error('Failed to fetch shop data!');
+        if (!response.ok) {
+            console.error('Failed to fetch shop data!', response.status);
             return [];
         }
 

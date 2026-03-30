@@ -17,7 +17,7 @@ const ShopContext = createContext<ShopContext | undefined>(undefined);
 
 export function ShopDataProvider(props: Props) {
     return(
-        <ShopContext.Provider value={{shopProducts: props.initialProducts ?? []}}>
+        <ShopContext.Provider value={{shopProducts: props.initialProducts}}>
             {props.children}
         </ShopContext.Provider>
     )

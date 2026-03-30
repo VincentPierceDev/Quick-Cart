@@ -56,6 +56,9 @@ Had some structure issues I was dealing with. Was struggling to figure out how t
 3/29/2026 6:31PM
 Alright, the project is pretty much complete at this point. I will be doing a few prompts to figure out tailwind issues with the cart ui. Besides that I have everything working and it is just a matter of polishing and finishing the cart ui. So, just docummenting these minor prompts. After I finish this, then tomorrow I plan on utilizing Ai to write all the test cases in Jest to make sure everything works, write the docs, and then host it. It should be ready to turn in tomorrow (3/30/2026).
 
+3/30/2026 12:46PM
+I have been going round and round trying to get the deployment working. First I was getting a 404 error which I fixed by specifying the project type in Vercel. Now I am having an issue where the server is passing an empty array to my Shop Provider. So, trying to figure out what is causing this issue, using various resources.
+
 ## Corrections:
 
 3/28/2026 8:33PM
