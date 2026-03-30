@@ -13,6 +13,11 @@ Day 1
 Start Time: 10:17AM
 End Time:  11:59PM
 
+Day 2
+Start Time: 10:02AM
+Break: 2:45PM - 
+End Time:
+
 ## Strategies
 
 3/28/2026 8:53PM
@@ -76,5 +81,8 @@ Asked Claude to create me a cart provider similar to my shop provider to handle 
 
 3/29/2026 11:15PM
 I have to add this log. I have a big issue on IOS mobile that is causing none of my buttons to work. I have tried everything, asked Claude, GPT, CoPilot, looked up answers, searched and debugged on my own for several hours. Hopefully I can figure this out tomorrow and I won't take too much time away from building test cases. I still have a couple more styles to touch up on, but the app is complete.
+
+3/30/2026 10:26AM
+I fixed the issue with my buttons not working on IOS. I had to enabled allowedDevOrigins for the network host so the app would function across the network. Yea, all the Ai was way off and it took a little bit of testing to realize it was not an actual component blocking anything.
 
 ## Testing

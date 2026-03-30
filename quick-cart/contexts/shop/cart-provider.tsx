@@ -2,10 +2,13 @@
 
 import { createContext, useState, ReactNode, useContext } from "react";
 import { CartData } from "@/global-types/shop/shop-types";
+import { useShopData } from "./shop-provider";
 
 
 interface CartContext {
     cartProducts: CartData[];
+    getItemQuantity: () => number;
+    getTotalValue: () => number;
     updateCart: (id: number, amnt: number) => void;
 }
 
@@ -15,8 +18,14 @@ interface Props {
 
 const cartContext = createContext<CartContext | undefined>(undefined);
 
+//**********************************************/ 
+//CART PROVIDER MUST BE SETUP AFTER SHOP PROVIDER
+//**********************************************/
+
 export function CartDataProvider(props: Props) {
     const [cartItems, setCartItems] = useState<CartData[]>([]);
+
+    const {shopProducts} = useShopData();
 
     const updateItemQuantity = (id: number, amnt: number) => {
         setCartItems((prevItems: any) => {
@@ -26,7 +35,6 @@ export function CartDataProvider(props: Props) {
             //if a negative comes in adding will still substract still
             if(exists)
                 return prevItems.map((item: CartData) => {
-                    console.log(item);
                     return item.id === id ? {...item, quantity: item.quantity + amnt} as CartData : item
                 }).filter((item: CartData) => item.quantity > 0); //remove item if there are no more
 
@@ -35,8 +43,24 @@ export function CartDataProvider(props: Props) {
         })
     }
 
+    const calcItemQuantity = () => {
+        return cartItems.length;
+    }
+
+    const calcTotalValue = () => {
+        let runningTotal: number = 0;
+        cartItems.map((product: CartData) => {
+            const item = shopProducts.find(x => x.id === product.id);
+            if(item)
+                return runningTotal += item?.price * product.quantity;
+            else
+                return 0;
+        })
+        return runningTotal;
+    }
+
     return (
-        <cartContext.Provider value={{cartProducts: cartItems, updateCart: updateItemQuantity}}>
+        <cartContext.Provider value={{cartProducts: cartItems, updateCart: updateItemQuantity, getItemQuantity: calcItemQuantity, getTotalValue: calcTotalValue}}>
             {props.children}
         </cartContext.Provider>
     )

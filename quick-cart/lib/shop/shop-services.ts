@@ -19,5 +19,5 @@ export async function CheckoutCart(items: CartData[]) {
     //imagine making a call to hte backend, it would verify pricing and everything
     //so all it needs is the id and quantity
     //just print it to pretend
-    console.log(items);
+    alert(items);
 }

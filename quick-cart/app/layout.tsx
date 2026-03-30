@@ -4,8 +4,8 @@ import { Suspense } from "react";
 import Loading from "@/components/global/Loading";
 import Navbar from "@/components/global/Navbar";
 import Footer from "@/components/global/Footer";
-import { MenuProvider } from "@/contexts/general/menu-context";
-import { ThemeProvider } from "next-themes";
+import { MenuProvider } from "@/contexts/general/menu-provider";
+import { DarkModeThemeProvider } from "@/contexts/general/theme-provider";
 
 export const metadata: Metadata = {
   title: "Quick Cart",
@@ -24,8 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`h-full antialiased overflow-x-hidden`} suppressHydrationWarning>
       <MenuProvider>
-      <ThemeProvider attribute="class">
       <body className="min-h-full flex flex-col overflow-x-hidden">
+        <DarkModeThemeProvider>
         <nav>
           <Navbar/>
         </nav>
@@ -37,8 +37,8 @@ export default function RootLayout({
         <footer>
           <Footer/>
         </footer>
+        </DarkModeThemeProvider>
       </body>
-      </ThemeProvider>
       </MenuProvider>
     </html>
   );

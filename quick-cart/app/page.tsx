@@ -11,15 +11,14 @@ import { CartDataProvider } from "@/contexts/shop/cart-provider";
 export default async function Home() {
   const storeItems: ItemData[] = await RetrieveAllShopItems();
 
-
   return (
     <>
-      <CartDataProvider>
       <ShopDataProvider initialProducts={storeItems}>
+      <CartDataProvider>
           <ShoppingGrid/>
-          <ShoppingCart/>
-      </ShopDataProvider>
+          <ShoppingCart/> 
       </CartDataProvider>
+      </ShopDataProvider>
     </>
   );
 }

@@ -10,7 +10,9 @@ const nextConfig: NextConfig = {
         hostname: 'fakestoreapi.com',
       }
     ]
-  }
+  },
+
+  allowedDevOrigins: ["192.168.10.2"],
 };
 
 export default nextConfig;
