@@ -3,7 +3,7 @@ import { ItemData, CartData } from "@/global-types/shop/shop-types"
 import { useCart } from "@/contexts/shop/cart-provider"
 import { useShopData } from "@/contexts/shop/shop-provider";
 import { useMemo } from "react"; //keep for testing
-import Button from "@/components/global/Button";
+import Button from "@/components/global/Button/Button";
 import Image from "next/image";
 
 interface Props {
@@ -53,11 +53,11 @@ export default function CartItem(props: Props) {
                 <span>${item.price}</span>
             <div className="flex flex-row justify-between">
                 <div className="flex flex-row gap-5 items-center">
-                    <Button onClick={removeItem}>-</Button>
+                    <Button type="button" onClick={removeItem}>-</Button>
                     <span>{props.cartInfo.quantity}</span>
-                    <Button onClick={addItem}>+</Button>
+                    <Button type="button" onClick={addItem}>+</Button>
                 </div>
-                <Button onClick={deleteItem}>🗑</Button>
+                <Button type="button" onClick={deleteItem}>🗑</Button>
             </div>
             </div>
         </div>

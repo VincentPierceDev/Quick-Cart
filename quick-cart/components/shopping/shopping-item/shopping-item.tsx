@@ -1,9 +1,9 @@
 'use client'
 import Image from "next/image"
 import { CartData, ItemData } from "@/global-types/shop/shop-types";
-import Button from "../global/Button";
+import Button from "../../global/Button/Button";
 import { useRef } from "react";
-import Rating from "./rating";
+import Rating from "../rating";
 import { useCart } from "@/contexts/shop/cart-provider";
 
 interface Props {
@@ -45,7 +45,7 @@ export default function ShoppingItem(props: Props) {
                 </p>
                 <div className="flex row items-center justify-between w-full mt-auto">
                     <span className="font-bold text-xl">${props.info.price}</span>
-                    <Button onClick={addItemToCart} ariaDisabled={false} disabledText="Out of Stock">Add To Cart</Button>
+                    <Button type="submit" onClick={addItemToCart} ariaDisabled={false} disabledText="Out of Stock">Add To Cart</Button>
                 </div>
             </div>
         </div>

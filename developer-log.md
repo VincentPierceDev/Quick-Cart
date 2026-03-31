@@ -13,12 +13,29 @@ Day 1
 Start Time: 10:17AM
 End Time:  11:59PM
 
-Day 2
+Day 2 (finished the challenege at 12:10AM on April 1, 2026)
 Start Time: 10:02AM
-Break: 2:45PM - 
-End Time:
+Break: 2:45PM - 7:04PM
+End Time: 12:08AM
 
-## Strategies
+## Overall Strategy (writing this after the fact)
+Throughout the development of Quick Cart, I used various AI tools such as GitHub Copilot, Claude (browser), and ChatGPT as an assistant to accelerate debugging, brainstorm solutions, and help with test cases. My overall strategy focused on providing context by copy/pasting code to the model, providing file "ask" context, or explaining various issues in detail. Through this process I verified solutions and used my knowledge to go with my best decisions. I docummented almost all of these contexts below, following this strategy, of course I can't provide every prompt but the provided info should suffice.
+
+### Context Provisions
+Provided sample mock API data, component structure, css examples, and ideas to guide Ai models into generating Typescript, layout solutions, and debugging suggestions.
+
+### Assisted Development
+Used Ai for initial component scaffolding. While I did not blindly copy and paste, I let the various Ai tools provide their input and utilized this to speed up the thinking process. I had to heavily alter details to get stuff to match up, but like I said it was very good for scaffolding to get the initial component on the page.
+
+### Test Case Generation
+This is where the Ai generation heavily picked up. I utilized the Ai to provide additional details about the best test cases. Utilized a list of cases and chose cases aligning with the direction it went with. All AI generated tests were hand written to ensure accuracy and software development best practices. For example, the models sort of forget that variables exist and different things, so you have to refactor stuff anyways.
+
+### Human Oversight
+I reviewed, corrected, and improved everything. I am still at an entry level software engineering level so maybe my decisions are not up to perfect par with enterprise systems, but everything character of code was typed and reviewed by me.
+
+## Details of AI Uses
+
+## Processess
 
 3/28/2026 8:53PM
 I provided CoPilot a sample item data from the api so it could quickly construct a interface type for me. I instructed it to read all the data that will be receiving and build the interface from there. It tried putting everything into a single ItemData. Meanwhile, the ratings are two seperate values. It also did not export, which it probably did not understand I needed to. I also removed a few values from the data that I would not need.
@@ -92,3 +109,27 @@ I have to add this log. I have a big issue on IOS mobile that is causing none of
 I fixed the issue with my buttons not working on IOS. I had to enabled allowedDevOrigins for the network host so the app would function across the network. Yea, all the Ai was way off and it took a little bit of testing to realize it was not an actual component blocking anything.
 
 ## Testing
+
+3/30/2026 7:05PM
+Started off by asking GPT about how many tests I should provide for each category to have a solid amount. I knew I needed a few unit and integration tests at a minimum for each component and the overall app. However, I am not sure where the line is for overkill and not enough. So, I asked Ai to do research and find the best amount of test cases for a project like this. It suggested having about 15 tests which I deemed satisfactory.
+
+3/30/2026 7:44PM
+Needed a jest config and had Copilot generate me a default and simple config that would work for this project. I have verified it works properly.
+
+3/30/2026 8:31PM
+Ai suggested testing for button clicking when disabled. It provided the test case and I went to test and my button ended up failing. I noticed I am setting disabled to a string rather than a actual boolean. Fixed the issue so the test case works properly now.
+
+3/30/2026 9:14PM
+Requested Claude to provide me with several test cases that I can use to test obfuscated features in the shopping-item. Looked over the code, adjusted a few things to get test to work and better fit what I want, then checked the tests for success.
+
+3/30/2026 9:33PM
+Have not mentioned it, but figured I would. I have been utilizing CoPilot throughout the entire testing to check the corresponding file for me in order to determine what alt text, title, name, or however I am labeling specific items or other data that intellisense doesn't show. Speeds up flipping around significantly.
+
+3/30/2026 11:03PM
+Utilized Calude to fix a bug in my shopping-grid-test that was calling all tests to fail in the add to cart adding proper id. I had to add a moduleNameMapper to the jest config so that I could use root paths that match the component import.
+
+3/30/2026 11:47PM
+Needed quite a bit of help with cart-item-test and shopping-grid-test to setup the mocks, could not get them to work for the life of me. I understand what they are doing though, simply making dummy data for the components and functions that are seperate from the actual components. I just needed help getting them setup to work, but finally got it!
+
+
+## END OF LOGS

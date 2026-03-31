@@ -5,8 +5,8 @@ import { CartData } from "@/global-types/shop/shop-types";
 import { useState, useEffect } from "react";
 import { CheckoutCart } from "@/lib/shop/shop-services";
 import CartNotification from "./cart-notification";
-import Button from "@/components/global/Button";
-import CartItem from './cart-item';
+import Button from "@/components/global/Button/Button";
+import CartItem from './cart-item/cart-item';
 
 export default function ShoppingCart() {
     const [total, setTotal] = useState(0);
@@ -30,10 +30,10 @@ export default function ShoppingCart() {
     }, [cartProducts, total]);
 
     return(
-        <div className={`flex flex-col gap-15 justify-between z-50 pt-4 pl-2 pr-2 w-80 md:w-100 h-full bg-[var(--primary-color)] fixed top-0 right-0 will-change-transform transition-all duration-300 ${isOpen ? openClass : closedClass}`}>
+        <div id="shopping-cart" className={`flex flex-col gap-15 justify-between z-50 pt-4 pl-2 pr-2 w-80 md:w-100 h-full bg-[var(--primary-color)] fixed top-0 right-0 will-change-transform transition-all duration-300 ${isOpen ? openClass : closedClass}`}>
             <div className="sm:pl-1 lg:pl-0 flex flex-row justify-between">
                 <span className={`w-80 inline-block relative text-2xl font-bold`}>Shopping Cart</span>
-                <Button onClick={closeMenu}>
+                <Button type="button" ariaControls="shopping-cart" onClick={closeMenu}>
                     <span className="text-xl font-extrabold">X</span>
                 </Button>
             </div>
@@ -49,7 +49,7 @@ export default function ShoppingCart() {
                     <span className="font-extrabold">Total: </span>
                     <span className="font-extrabold">${total}</span>
                 </div>
-                <Button onClick={checkoutCart} ariaDisabled={!checkoutEnabled} extraClasses="w-full m-auto">
+                <Button type="submit" onClick={checkoutCart} ariaDisabled={!checkoutEnabled} extraClasses="w-full m-auto">
                     Checkout
                 </Button>
             </div>

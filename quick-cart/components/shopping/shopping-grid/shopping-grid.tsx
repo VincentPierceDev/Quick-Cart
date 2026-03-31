@@ -1,5 +1,5 @@
 'use client'
-import ShoppingItem from "@/components/shopping/shopping-item";
+import ShoppingItem from "@/components/shopping/shopping-item/shopping-item";
 import { ItemData } from "@/global-types/shop/shop-types"
 import { useShopData } from "@/contexts/shop/shop-provider";
 

@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 
 interface Props {
     children?: ReactNode;
+    type: "submit" | "reset" | "button";
+    ariaControls?: string;
     ariaDisabled?: boolean;
     disabledText?: string;
     toggled?: boolean;
@@ -14,9 +16,11 @@ export default function Button(props: Props){
     <button 
         className={`block pt-1 pb-1 pl-2 pr-2 bg-[var(--secondary-color)] text-[color:var(--tertiary-color)] font-bold rounded shadow-[color:var(--tertiary-color)] transition-shadow duration-300 ease-in-out ${props.ariaDisabled ? 'bg-gray-300' : 'hover:shadow-md cursor-pointer'} ${props.extraClasses}`}
         aria-disabled={props.ariaDisabled}
+        aria-controls={props.ariaControls}
         onClick={props.onClick}
         disabled={props.ariaDisabled}
-        aria-pressed={props.toggled}
+        aria-expanded={props.toggled}
+        type={props.type}
     >
       {props.ariaDisabled ? props.disabledText : props.children}
     </button>
