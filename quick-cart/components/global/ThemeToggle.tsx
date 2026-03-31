@@ -18,6 +18,6 @@ export default function ThemeToggle() {
     }, [theme])
 
     return (
-        <Button extraClasses="w-10" onClick={toggleClick}>{emblem}</Button>
+        <Button type="button" extraClasses="w-10" onClick={toggleClick}>{emblem}</Button>
     )
 }
