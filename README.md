@@ -1,6 +1,6 @@
 # Quick Cart
 
-This is a [Next.js](https://nextjs.org) application built upon version 16.2.1. This is my (Vincent Pierce) submission for the Kibo coding challenge project.
+This is a [Next.js](https://nextjs.org) application built upon version 16.2.1. All tests are utilizing Jest version 30.3.0 and its corresponding libraries. This is my (Vincent Pierce) submission for the Kibo coding challenge project.
 
 All details are listed below on how to setup the project, run the application, and see the live demo!
 
