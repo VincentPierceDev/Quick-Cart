@@ -29,7 +29,205 @@ The application follows a unidirectional data flow. Products are fetched from th
 
 ## Components
 
+### Button
 
+**Purpose:**
+Utility that provides a simple button setup throughout the entire application. Automatically sets up aria, role, classes, children, and everything.
+
+**Props:**
+- children: ReactNode - everything inside the button tags
+- type: string literal union - specifies setting the button type
+- ariaControls: string - sets the element id that this button controls
+- ariaDisabled: boolean - controls the actual disabled feature on button component, aria-disabled tag, and children render
+- disabledText: string - alternative text to be displayed if the button is disabled
+- toggled: boolean - sets the aria-expanded assesibility to be true or false
+- extraClasses: string - overridable css classes for the button for unique instances
+- onClick: void function - callback function for when the button has been clicked
+
+**Behavior:**
+- displays a clickable button that can be enabled or disabled
+- calls function when clicked to perform specific action
+
+**Dependencies:**
+- None
+
+### Navbar
+
+**Purpose:**
+Top navigation bar for the app. Includes branding, theme toggle and cart menu button.
+
+**Props:**
+- None
+
+**Behavior:**
+- renders title of the page
+- includes `ThemeToggle` and cart open button
+- uses `useMenu` to toggle cart panel via `openMenu` and `isOpen`
+
+**Dependencies:**
+- `ThemeToggle`
+- `Button`
+- `CartNotification` (not yet used visually)
+
+### Footer
+
+**Purpose:**
+Fixed bottom footer with my name and submission context.
+
+**Props:**
+- None
+
+**Behavior:**
+- shows static credits text
+
+**Dependencies:**
+- None
+
+### Loading
+
+**Purpose:**
+Loading indicator that can be used when data is being fetched or a intensive component is trying to render.
+
+**Props:**
+- None
+
+**Behavior:**
+- renders animated dots with CSS keyframes inside a centered container
+
+**Dependencies:**
+- None
+
+### ThemeToggle
+
+**Purpose:**
+Switches between dark and light theme using `next-themes`.
+
+**Props:**
+- None
+
+**Behavior:**
+- calls `setTheme` to flip between `dark` and `light`
+- displays moon/sun icon based on current `theme`
+
+**Dependencies:**
+- `Button`
+- `next-themes`
+
+### Rating
+
+**Purpose:**
+Displays product rating with stars and count for the total amount of ratings.
+
+**Props:**
+- rating: `ItemRating` (rate, count)
+
+**Behavior:**
+- shows numeric rating and fill-adjusted star visuals
+- shows `rating.count` in parentheses
+
+**Dependencies:**
+- None
+
+### Shop
+
+**Purpose:**
+Top-level shopping page component that wires providers and layout components.
+
+**Props:**
+- data: `ItemData[]`
+
+**Behavior:**
+- wraps `ShoppingGrid` and `ShoppingCart` in `ShopDataProvider` and `CartDataProvider`
+
+**Dependencies:**
+- `ShopDataProvider`, `CartDataProvider` (context providers)
+- `ShoppingGrid`
+- `ShoppingCart`
+
+### ShoppingGrid
+
+**Purpose:**
+Scrollable grid layout for listing all products in the store.
+
+**Props:**
+- None
+
+**Behavior:**
+- reads `shopProducts` from `useShopData`
+- renders `ShoppingItem` for each product
+- displays message if no products exist
+
+**Dependencies:**
+- `ShoppingItem`
+
+### ShoppingItem
+
+**Purpose:**
+Individual product card for each grid display item.
+
+**Props:**
+- info: `ItemData`
+
+**Behavior:**
+- shows image, title, description, price, rating
+- applies hover image scale animation
+- adds item to cart via `useCart().updateCart`
+- uses eager/lazy loading based on item id
+
+**Dependencies:**
+- `Rating`
+- `Button`
+- `useCart` context
+
+### ShoppingCart
+
+**Purpose:**
+Sliding cart panel for cart contents and checkout.
+
+**Props:**
+- None
+
+**Behavior:**
+- shows cart items and total price from `useCart`
+- opens/closes using `useMenu` state
+- checkout button calls `CheckoutCart` when total > 0
+- updates total and button enabled state in effect
+
+**Dependencies:**
+- `useCart`, `useMenu`
+- `CartItem`
+- `Button`
+- `CheckoutCart` service call (mock)
+
+### CartItem
+
+**Purpose:**
+List row for each product in cart with quantity controls.
+
+**Props:**
+- cartInfo: `CartData`
+
+**Behavior:**
+- resolves full product data from `shopProducts`
+- provides `+`, `-`, and delete controls via `updateCart`
+
+**Dependencies:**
+- `Button`
+- `useCart`, `useShopData`
+
+### CartNotification (placeholder)
+
+**Purpose:**
+Future extension point for temporary feedback notifications.
+
+**Props:**
+- None
+
+**Behavior:**
+- currently empty placeholder container
+
+**Dependencies:**
+- None
 
 ## Testing Strategy
 

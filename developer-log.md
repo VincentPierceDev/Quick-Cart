@@ -79,6 +79,9 @@ I have been going round and round trying to get the deployment working. First I 
 3/30/2026 1:56PM
 After doing some digging, I discovered that fakestoreapi.com may block common serverless fetches from stuff like Vercel, Netlify, AWS, etc. So, I am adjusting the products fetch to be client only. This will remove the loading from working since that is server only. However, I am leaving all the server fetching as well so it can be swapped around easily. The page.tsx is the only file that should be affected by the change.
 
+3/31/2026 9:31PM (The following day after my submission)
+I started the documentation for each individual component in the project. I formatted the button with all the information I need and what I want it to look like. I then asked Copilot if it would look through all other components in the project and write documentation for them and match the style I have already. Currently in the process of reviewing all the information to verify it is correct.
+
 ## Corrections:
 
 3/28/2026 8:33PM
